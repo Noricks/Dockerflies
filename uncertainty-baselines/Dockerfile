@@ -4,6 +4,7 @@ WORKDIR /home
 
 # python & packages
 RUN apt update && apt -y upgrade
+ARG DEBIAN_FRONTEND=noninteractive
 RUN apt -y install wget build-essential libncursesw5-dev libssl-dev \
 libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev curl
 # RUN add-apt-repository ppa:deadsnakes/ppa
