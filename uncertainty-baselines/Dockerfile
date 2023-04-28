@@ -8,6 +8,10 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt -y install wget build-essential libncursesw5-dev libssl-dev \
 libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev curl
 # RUN add-apt-repository ppa:deadsnakes/ppa
+
+# Download for TF
+RUN apt-get -y install libsndfile1
+
 RUN apt -y install python3.10
 RUN apt -y install python3-pip
 RUN apt -y install git
@@ -21,7 +25,7 @@ RUN pip3 install -r ./requirements.txt
 # Download Uncertainty
 RUN cd /tmp
 RUN git clone https://github.com/google/uncertainty-baselines.git
-# RUN pip3 install -e .
+RUN pip3 install -e .
 # RUN pip3 install -e ".[models]"
 # RUN pip3 install -e ".[datasets]"
 # RUN pip3 install -e ".[jax]"
